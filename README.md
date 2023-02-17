@@ -1,6 +1,6 @@
 # PIGINet
 
-Anonymous Submission. 
+This repository contains project page source code for <a href="https://piginet.github.io/">PIGINet</a>.
 
 
 # Website License
