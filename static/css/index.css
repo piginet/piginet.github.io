@@ -263,8 +263,11 @@ td {
 
 .hiddentxt:hover ~ .hiddenimg {
   display: block;
-  position: absolute;
-  z-index: 2
+  /* position: absolute; */
+  position: fixed;
+  left: 50%;
+  bottom: 25%;
+  z-index: 299
 }
 
 #table-note {
