@@ -135,7 +135,7 @@
   <div class="hero-body">
     <div class="container">
 
-      <h2 class="title is-2 has-text-centered" style="padding-bottom: 20pt;">Motivations</h2>
+      <h3 class="title is-3 has-text-centered" style="padding-bottom: 20pt;">Motivations</h3>
 
       <h2 class="subtitle has-text-centered">
       LLMs are good at generating high-level plans, but pick-and-place actions may be infeasible when there are articulated or movable obstacles.
@@ -258,7 +258,7 @@
 
     <div class="rows is-centered ">
       <div class="row is-full-width">
-        <h2 class="title is-2 has-text-centered">Abstract</h2>
+        <h3 class="title is-3 has-text-centered">Abstract</h3>
 
         <p class="justify">
             <img src="media/figures/images.jpg" class="interpolation-image" width="480" align="right"
@@ -278,7 +278,7 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-two-thirds">
-          <h2 class="title is-2 has-text-centered">Video</h2>
+          <h3 class="title is-3 has-text-centered">Video</h3>
           <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/kDliSCMW2XY?rel=0&amp;showinfo=0"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -293,7 +293,7 @@
   <div class="hero-body has-text-centered">
     <div class="container">
 
-      <h2 class="title is-2">Results<br></h2>
+      <h3 class="title is-3">Results<br></h3>
 
       Choose a problem:
       <div class="select is-small is-rounded">
@@ -310,8 +310,18 @@
 
       <div id="result-table" w3-include-html="result-food-in-cabinet.html"></div><br>
 
+      <div id="table-note">
+        Note: <br>
+        <ul>
+           <li>In each table, the cell with green background indicates the task plan successfully refined and visualized in the video. PIGINet speeds up planning by reducing the task plans attempted before refining that task plan.</li>
+           <li>The arguments to actions are object instances, e.g. tomato, tomato#1</li>
+           <li>Move the cursor to the object names in bold, the corresponding object instance will be displayed. Note that those segmented images are rendered in full visibility with transparent background for better understanding; they are not the segmented images used by PIGINet.</li>
+        </ul>
+      </div>
+
     </div>
   </div>
+
 </section>
 
 
