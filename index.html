@@ -323,8 +323,9 @@
         <ul>
           <li>In the video, furnitures that block the top-down view of the robot arm are removed (upper panel), while the side view shows all furnitures (lower panel).</li>
            <li>In each table, the cell with green background indicates the task plan successfully refined and visualized in the video. PIGINet speeds up planning by reducing the task plans attempted before refining that task plan.</li>
-           <li>The arguments to actions are object instances, e.g. tomato, tomato#1</li>
+           <li>In the tables, the arguments to actions are object instances, e.g. tomato, tomato#1.</li>
            <li>Move the cursor to the object names in bold, the corresponding object instance will be displayed. Note that those segmented images are rendered in full visibility with transparent background for better understanding; they are not the segmented images used by PIGINet.</li>
+           <li>Not all movable objects or articulated doors in the scene are included as manipulable objects in the planning problem.</li>
         </ul>
       </div>
 
