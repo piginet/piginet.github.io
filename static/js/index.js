@@ -41,7 +41,7 @@ function updateResultVideo() {
 
   var video = document.getElementById("result-video");
   video.src = "media/results/" + task + ".mp4";
-  video.playbackRate = 1;
+  video.playbackRate = 0.5;
   video.play();
 
   var table1 = document.getElementById("result-table");
