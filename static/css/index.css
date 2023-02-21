@@ -17,10 +17,6 @@ body {
     margin-bottom: 5px;
 }
 
-.dnerf {
-  font-variant: small-caps;
-}
-
 .dpiginet {
   font-variant: small-caps;
   color: hsl(121, 100%, 36%) !important;
@@ -36,7 +32,7 @@ body {
 }
 
 .teaser video {
-  object-fit: fill; 
+  object-fit: fill;
 }
 #glass{
   margin-left: -10px;
@@ -193,10 +189,80 @@ body {
 
  .dropdown-item{
     white-space: pre-wrap;
-}  
+}
 
 
 .justify {
   text-align: justify;
 }
 
+/* table holding plans */
+
+.search-table-outter {
+  overflow-x: scroll;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-table {
+  table-layout: fixed;
+  margin: 10px auto 0px auto;
+  border-radius: 6px 6px 6px 6px;
+	border: 1px solid #000;
+	border-spacing: 0;
+}
+
+.search-table tr:first-child th:first-child {
+	border-top-left-radius: 5px !important ;
+}
+
+.search-table tr:first-child th:last-child {
+	border-top-right-radius: 5px !important ;
+}
+
+.search-table tr:last-child td:first-child {
+	border-bottom-left-radius: 5px !important ;
+}
+
+.search-table tr:last-child td:last-child {
+	border-bottom-right-radius: 5px !important ;
+}
+
+.search-table, td, th {
+  border-collapse:collapse;
+  border:1px solid #fff;
+  width: auto !important ;
+  color: #444;
+}
+
+th {
+  text-align: center !important ;
+  padding:10px 4px;
+  font-size:0.8em;
+  background:#ccc;
+}
+
+td {
+  text-align: left !important ;
+  padding:5px 6px;
+  font-size:0.7em;
+  height:30px;
+  white-space: nowrap;
+  background:#eee;
+}
+
+.hiddentxt {
+  font-weight: bold;
+  z-index:99;
+}
+
+.hiddenimg {
+  display: none;
+}
+
+.hiddentxt:hover ~ .hiddenimg {
+  display: block;
+  position: absolute;
+  z-index: 2
+}
