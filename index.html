@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="PIGINet: A Transformer-based Plan Feasibility Predictor for Faster Task and Motion Planning">
-  <meta name="keywords" content="Transformers, Task and Motion Planning, Manipulation">
+        content="Compositional Diffusion-Based Continuous Constraint Solvers">
+  <meta name="keywords" content="Diffusion models, Constriant satisfaction problems, Robot packing">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PIGINet</title>
+  <title>Diffusion-CCSP</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -25,32 +25,36 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-<body onload="updateResultVideo();">
+<body onload=""> <!--updateResultVideo();-->
 
 <section class="hero" style="background-color: #ffffff; z-index:-10">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">PIGINet: A Transformer-based Plan Feasibility Predictor for Robotic Rearrangement in Geometrically Complex Environments</h1>
-          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://roboticsconference.org/">RSS 2023</a></h3>
+          <h1 class="title is-1 publication-title">Compositional Diffusion-Based Continuous Constraint Solvers</h1>
+          <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://roboticsconference.org/">RSS 2023</a></h3> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a target="_blank" href="https://zt-yang.com/">Zhutian Yang</a><sup>1, 2</sup>,</span>
+              <a target="_blank" href="https://zt-yang.com/">Zhutian Yang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="http://web.mit.edu/caelan/www/">Caelan Garrett</a><sup>2</sup>,</span>
+              <a target="_blank" href="http://web.mit.edu/caelan/www/">Jiayuan Mao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://web.mit.edu/caelan/www/">Yilun Du</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://web.mit.edu/caelan/www/">Jiajun Wu</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://web.mit.edu/caelan/www/">Joshua B. Tenenbaum</a><sup>1</sup>,</span>
             <span class="author-block">
               <a target="_blank" href="http://people.csail.mit.edu/tlp/">Tomás Lozano-Pérez</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="http://people.csail.mit.edu/lpk/">Leslie Kaelbling</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://homes.cs.washington.edu/~fox/">Dieter Fox</a><sup>2</sup>
+              <a target="_blank" href="http://people.csail.mit.edu/lpk/">Leslie Kaelbling</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>MIT,</span>
-            <span class="author-block"><sup>2</sup>NVIDIA</span>
+            <span class="author-block"><sup>2</sup>Stanford</span>
           </div>
 
           <div class="column has-text-centered">
@@ -67,7 +71,7 @@
               </span>
 
             <!-- Video Link. -->
-            <span class="link-block">
+            <!-- <span class="link-block">
               <a target="_blank" href="https://www.youtube.com/watch?v=kDliSCMW2XY"
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
@@ -75,7 +79,7 @@
                 </span>
                 <span>Video</span>
               </a>
-            </span>
+            </span> -->
 
             <!-- Code Link. https://github.com/Learning-and-Intelligent-Systems/kitchen-worlds -->
             <span class="link-block">
@@ -98,7 +102,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-fullhd" style="margin-bottom: -300px; z-index:-200">
     <div class="hero-body">
       <div class="container">
@@ -112,19 +116,56 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="hero" style="background-color: #ffffff; z-index:-10">
-  <div class="container is-fullhd">
+<section class="hero" style="background-color: #ffffff; z-index:-10; margin-top: -3rem">
+  <div class="container">
     <div class="hero-body">
-      <div class="container">
-        <h2 class="subtitle has-text-centered">
-        <span class="dpiginet">PIGINet</span> predicts the feasibility of a task <span class="dpiginet">P</span>lan given <span class="dpiginet">I</span>mages of objects, <span class="dpiginet">G</span>oal description, and <span class="dpiginet">I</span>nitial state descriptions. <br>It reduces the planning time of a task and motion planner by 50-80% by eliminating infeasible task plans.</b>
-        </h2>
+
+      <img src="media/figures/teaser.png" class="full-image" style="width:80%;padding-bottom: 3.5rem"
+         alt="Diffusion-CCSP combines diffusion models, representing individual constraints, to generate object placement poses that are reachable and allow collision-free grasps. The choice of an object placement depends on both semantic constraints about object placement and collision avoidance constraints on the object and the robot gripper." />
+
+       <div class="container" style="padding-bottom:2rem">
+         <h2 class="subtitle has-text-centered">
+         <span class="ddiffusionccsp">Diffusion-CCSP</span> is an approach for learning to solve continuous constraint satisfaction problems in robotic reasoning and planning.</b>
+         </h2>
+       </div>
+
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/demo_4_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/demo_5_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/demo_5_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/demo_5_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
       </div>
 
-      <img src="media/figures/io.png" class="full-image" style="width:50%"
-         alt="Input and output of PIGINet plan feasibility predictor" />
+    <div class="container">
+      <h2 class="subtitle has-text-centered">
+      Above are full motion solutions using the placement poses generated by <span class="ddiffusionccsp">Diffusion-CCSP</span>.</b>
+      </h2>
+    </div>
 
     </div>
   </div>
@@ -138,142 +179,65 @@
       <h3 class="title is-3 has-text-centered" style="padding-bottom: 20pt;">Motivations</h3>
 
       <h2 class="subtitle has-text-centered">
-      Task planners or LLMs are good at generating high-level plans, but pick-and-place actions may be infeasible when there are articulated or movable obstacles.
+        <b>Continuous Constraint Satisfaction Problems</b> require robot planner to conform to multiple geometric, physical, and qualitative constraints simultaneously.
       </h2>
 
-      <div id="results-carousel" class="carousel results-carousel">
-
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions1_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions2_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions3_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions1_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions2_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/collisions3_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
+      <img src="media/figures/constraints.png" class="full-image" style="width:70%;padding-bottom: 2.5rem" alt="" />
 
       <h2 class="subtitle has-text-centered">
-      <span class="dpiginet">PIGINet</span> uses images to decide which sequence of actions are feasible in rearrangement tasks involving storage space and cluttered surface.
+        For example, to place A into the tray in the figure above, we need to generate the grasping pose grasp A, placement pose pose A, and the robot arm trajectory. We omit collision-free constraints with robots for brevity.
       </h2>
 
-      <div id="results-carousel" class="carousel results-carousel">
+      <img src="media/figures/compose.png" class="full-image" style="width:70%;padding-bottom: 2.5rem" alt="" />
 
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks1_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks2_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks3_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks1_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks2_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video poster="" autoplay muted loop height="100%">
-            <source src="media/tasks3_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-      </div>
     </div>
   </div>
 </section>
 
-<section class="hero" style="background-color: #ffffff;">
-  <div class="container is-fullhd">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="subtitle has-text-centered">
-        <span class="dpiginet">PIGINet</span> is a Transformer-based architecture that fuses features of images, text, and values describing the problem and plan.<br>
-        </h2>
-      </div>
 
-      <img src="media/figures/arch.png" class="full-image" style="width:50%"
-         alt="Architecture of PIGINet plan feasibility predictor" />
-
-    </div>
-  </div>
-
-  <div class="container is-max-widescreen">
+<section class="hero is-small">
+  <div class="container is-max-widescreen" style="padding: 2rem">
 
     <div class="rows is-centered ">
       <div class="row is-full-width">
         <h3 class="title is-3 has-text-centered">Abstract</h3>
 
-        <p class="justify">
+        <!-- <p class="justify">
             <img src="media/figures/images.jpg" class="interpolation-image" width="480" align="right"
                  style="margin:0% 1% "
                  alt="Image views" />
-             We present a learning-enabled Task and Motion Planning (TAMP) algorithm for solving mobile manipulation problems in environments with many articulated and movable obstacles. Our idea is to bias the search procedure of a traditional TAMP planner with a learned plan feasibility predictor. <br><br>The core of our algorithm is PIGINet, a novel Transformer-based learning method that takes in a task plan, the goal, and the initial state, and predicts the probability of finding motion trajectories associated with the task plan. The elements of each action or relation in the initial state–such as text, object poses, and door joint angles– are processed to produce embeddings of the same dimension and fused together to produce each token in the input sequence to transformer encoder. A pre-trained <a href="https://openai.com/blog/clip/">CLIP</a> model is used to generate corresponding text and image embeddings. <br><br>We integrate PIGINet within a TAMP planner that generates a diverse set of high-level task plans, sorts them by their predicted likelihood of feasibility, and refines them in that order. We evaluate the runtime of our TAMP algorithm on seven families of kitchen rearrangement problems, comparing its performance to that of non-learning baselines. Our experiments show that PIGINet substantially improves planning efficiency, cutting down runtime by 80% on problems with small state spaces and 10%-50% on larger ones, after being trained on only 150-600 problems. Finally, it also achieves zero-shot generalization to problems with unseen object categories thanks to its visual encoding of objects.
+                 This paper introduces an approach for learning to solve continuous constraint satisfaction problems (CCSP) in robotic reasoning and planning. Previous methods primarily rely on hand-engineering or learning generators for specific constraint types and then rejecting the value assignments when other constraints are violated. By contrast, our model, the compositional diffusion continuous constraint solver (Diffusion-CCSP) derives global solutions to CCSPs by representing them as factor graphs and combining the energies of diffusion models trained to sample for individual constraint types. Diffusion-CCSP exhibits strong generalization to novel combinations of known constraints, and it can be integrated into a task and motion planner to devise long-horizon plans that include actions with both discrete and continuous parameters.
           </p>
-        <br><br>
+        <br><br> -->
+        <p class="justify" style="padding-left: 8rem; padding-right: 8rem; padding-bottom: 2rem; ">
+          This paper introduces an approach for learning to solve continuous constraint satisfaction problems (CCSP) in robotic reasoning and planning. Previous methods primarily rely on hand-engineering or learning generators for specific constraint types and then rejecting the value assignments when other constraints are violated. By contrast, our model, the compositional diffusion continuous constraint solver (Diffusion-CCSP) derives global solutions to CCSPs by representing them as factor graphs and combining the energies of diffusion models trained to sample for individual constraint types. Diffusion-CCSP exhibits strong generalization to novel combinations of known constraints, and it can be integrated into a task and motion planner to devise long-horizon plans that include actions with both discrete and continuous parameters.
+        </p>
+
+        <h3 class="title is-3 has-text-centered" style="padding-bottom: 20pt;">Domains</h3>
+
+        <h3 class="subtitle has-text-centered">
+          Example domains that contain geometric, physical, and qualitative constraints:
+        </h3>
+
+        <img src="media/figures/domains.png" class="full-image" style="width:80%" alt="" />
+
+        <div style="padding-left: 4rem; ">
+          <p>
+            <b>Constraints in the above tasks</b>:
+            <ul>
+              <li>(a) The triangles must not collide with each other and fit in the container.</li>
+              <li>(b) The configuration of rectangles must satisfy a given set of qualitative constraints, in total 13 types. For example, <i>left-in(yellow, box)</i> and <i>horizontally-aligned(green, blue)</i>. The figure illustrates a subset of the 45 constraints present in the problem.</li>
+              <li>(c) The boxes must fit in between the shelves in a stable configuration. The arrows show the current support relationships.</li>
+              <li>(d) The objects must fit inside the container and there exist a packing order such that the gripper won't collide with any object or the container during placing.</li>
+          </p>
+        </div>
 
       </div>
     </div>
   </div>
 </section>
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered has-text-centered">
@@ -287,88 +251,51 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
 
 <section class="hero is-small">
-  <div class="hero-body has-text-centered">
+  <div class="hero-body">
     <div class="container">
 
-      <h3 class="title is-3">Results<br></h3>
+      <h3 class="title is-3 has-text-centered" style="padding-bottom: 20pt;">Results</h3>
 
-      Choose a problem:
-      <div class="select is-small is-rounded">
-        <select id="single-menu-replay" onchange="updateResultVideo()">
-          <option value="food-in-cabinet" selected="selected">"all food items are in the upper cabinet"</option>
-          <!-- <option value="food-in-cabinet-door">"all food items are in the upper cabinet (one of the cabinet door is open)"</option> -->
-          <option value="food-in-fridge">"all food items are in the fridge"</option>
-          <option value="food-in-fridge-door">"all food items are in the fridge (one of the fridge door is open)"</option>
-          <option value="food-in-fridge-pot">"all food items are in the fridge (the pot contains one food item)"</option>
-          <option value="zucchini-in-pot">"the zucchini is in the pot"</option>
-          <option value="potato-in-pot">"the potato is in the pot (the pot is occupied)"</option>
-          <!-- <option value="zucchini-in-sink">"the zucchini is in the sink (small sink space)"</option> -->
-          <option value="sweetpotato-in-sink">"the sweet potato is in the sink"</option>
-          <option value="potato-in-sink-harder">"the potato is in the sink (smaller sink space)"</option>
-        </select>
-      </div><br>
+      <h3 class="subtitle has-text-centered">
+        Diffusion-CCSP is able to solve unseen problems and even problems with more objects than it is trained with, as shown in the <b>Accumulated number of problems solved in 10 runs of different models</b>:
+      </h3>
 
-      <video id="result-video" class="full-image" muted autoplay loop width="70%">
-        <source src="media/results/food-in-cabinet.mp4"
-                type="video/mp4">
-      </video><br>
+      <img src="media/figures/results.png" class="full-image" style="width:80%;padding-bottom: 2.5rem" alt="" />
 
-      <div id="result-table" w3-include-html="result-food-in-cabinet.html"></div><br>
-
-      <div id="table-note">
-        Note: <br>
-        <ul>
-          <li>In the video, furnitures that block the top-down view of the robot arm are removed (upper panel), while the side view shows all furnitures (lower panel).</li>
-           <li>In each table, the cell with green background indicates the task plan successfully refined and visualized in the video. PIGINet speeds up planning by reducing the task plans attempted before refining that task plan.</li>
-           <li>In the tables, the arguments to actions are object instances, e.g. tomato, tomato#1.</li>
-           <li>Move the cursor to the object names in bold, the corresponding object instance will be displayed. Note that those segmented images are rendered in full visibility with transparent background for better understanding; they are not the segmented images used by PIGINet.</li>
-           <li>Not all movable objects or articulated doors in the scene are included as manipulable objects in the planning problem.</li>
-        </ul>
+      <div style="padding-left: 4rem; ">
+        <p>
+          Note that:
+          <ul>
+            <li>Diffusion-CCSP (ULA): our method with annealed unadjusted Langevin algorithm to sample from composed diffusion models.</li>
+            <li>Diffusion-CCSP (Reverse): our method with the standard reverse diffusion process to sample from composed diffusion models. This method is faster at sampling than ULA, but is generally found to have worse generalization performance. </li>
+            <li>OOD = Out of Training Distribution.</li>
+            <li>The sequential sampling baseline completely failed for task (c) and hard tasks in (b) and (d).</li>
+        </p>
       </div>
-    </div>
-  </div>
 
-</section>
-      
+      <h3 class="subtitle has-text-centered" style="padding-top: 2.5rem; ">
+      The number of calls to Diffusion-CCSP increases as the problem becomes more difficult and the number of constraints increases.
+      </h3>
 
-<section class="hero is-small" id="interactive">
-  <div class="hero-body has-text-centered">
-    <div class="container">
+      <img src="media/figures/results-tamp.png" class="full-image" style="width:80%;padding-bottom: 2.5rem" alt="" />
 
-      <h3 class="title is-3">3D interactive demo<br></h3>
-      <iframe
-        title="An example" width="70%" height="500"
-        src="https://zt-yang.github.io/lisdf-loaders/javascript/example/bundle/index.html"
-        importance="low" loading="lazy" sandbox="allow-scripts">
-      </iframe>
-
-    </div>
-  </div>
-
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <p>
-            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> made by the amazing <a href="https://keunhong.com/">Keunhong Park</a> and <a href="https://mohitshridhar.com/">Mohit Shridhar</a>.
-          </p>
-        </div>
+      <div style="padding-left: 4rem; ">
+        <p>
+          Note that:
+          <ul>
+            <li>In the 3D object stacking task, each call samples a support structure which determines the constraint graph.</li>
+            <li>In the 3D object packing task, each call samples a placing sequence with a set of grasps. </li>
+            <li>It takes on average 0.01-0.05 seconds for Diffusion-CCSP (Reverse) to solve each CCSP and 0.18-0.28 seconds for Diffusion-CCSP (ULA) to solve each CCSP.</li>
+        </p>
       </div>
+
     </div>
   </div>
-</footer>
-
-
-<!-- <script>
-includeHTML();
-</script> -->
+</section>
 
 </body>
 </html>
